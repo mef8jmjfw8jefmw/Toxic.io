@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Toxic — صقر المطيري | White WWI Archive</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@500;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Special+Elite&display=swap">
+<style>
+:root {
+  --ink: #141414;
+  --muted: #3a3a3a;
+  --faint: #5c584f;
+  --paper: #e3ded4;
+  --sheet: #ebe6dc;
+  --rule: #161616;
+  --hair: rgba(20,20,20,.45);
+  --soft: rgba(20,20,20,.12);
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  --ink: #f0eadf;
+  --muted: #d4ccbf;
+  --faint: #b7ae9f;
+  --paper: #171614;
+  --sheet: #211f1c;
+  --rule: #efe8dc;
+  --hair: rgba(239,232,220,.42);
+  --soft: rgba(239,232,220,.1);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.28), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(70,60,40,.035) 0 1px, transparent 1px 4px),
+    var(--paper);
+  font-family: "Libre Baskerville", Georgia, serif;
+  padding: 22px 16px 48px;
+}
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.04), transparent 46%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0 1px, transparent 1px 4px),
+    var(--paper);
+}
+.sheet {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 18px 28px 36px;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  box-shadow: 0 10px 40px rgba(0,0,0,.12);
+}
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+.top-credit { flex: 1; text-align: center; color: var(--muted); }
+.theme-toggle, .lbtn {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: .08em;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.theme-toggle { display: inline-flex; align-items: center; gap: 6px; }
+.lang-sw { display: flex; }
+.lbtn { border-left-width: 0; }
+.lang-sw .lbtn:first-child { border-left-width: 1px; }
+.lbtn.on, .theme-toggle:hover, .lbtn:hover { background: var(--ink); color: var(--sheet); }
+
+.mast {
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0 7px;
+  margin-top: 6px;
+}
+.mast-name {
+  margin: 0;
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.4vw, 1.7rem);
+  letter-spacing: .34em;
+  line-height: 1.2;
+}
+.dateline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 7px 0 2px;
+  color: var(--muted);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-align: center;
+}
+.dateline::before, .dateline::after {
+  content: "";
+  height: 1px;
+  background: var(--rule);
+  flex: 1;
+}
+.breaking {
+  margin: 2px 0 0;
+  text-align: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(3.1rem, 8.4vw, 6.35rem);
+  letter-spacing: -.03em;
+  line-height: .86;
+  text-transform: uppercase;
+}
+.bars-before, .bars-after { border: 0; margin: 0; }
+.bars-before {
+  border-top: 1px solid var(--rule);
+  border-bottom: 5px solid var(--rule);
+  height: 9px;
+  margin: 8px 0 6px;
+}
+.bars-after {
+  border-top: 5px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 9px;
+  margin: 7px 0 14px;
+}
+
+.front {
+  display: grid;
+  grid-template-columns: 1.45fr .78fr;
+  gap: 16px 18px;
+  align-items: start;
+  direction: ltr;
+}
+.lead-photo, .side-photo {
+  display: block;
+  width: 100%;
+  background: #111;
+  border: 2px solid var(--rule);
+  filter: grayscale(1) contrast(1.04);
+}
+.lead-photo {
+  aspect-ratio: 3 / 3.85;
+  object-fit: cover;
+  object-position: center 46%;
+}
+.figcap {
+  margin: 7px 0 12px;
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.kicker {
+  margin: 0 0 4px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.story-title {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  letter-spacing: .01em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.story-quote {
+  margin: 4px 0 8px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.chips {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  line-height: 1.6;
+}
+.place {
+  margin: 2px 0 0;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.rail {
+  border-left: 1px solid var(--rule);
+  padding-left: 14px;
+  direction: ltr;
+}
+.pull {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+.pull + .side-photo { margin-bottom: 8px; }
+.side-photo { margin: 0 0 10px; }
+.side-photo.top { aspect-ratio: 525 / 640; object-fit: cover; object-position: center 18%; }
+.side-photo.bottom { aspect-ratio: 3 / 4.15; object-fit: cover; object-position: center 12%; margin-bottom: 0; }
+.rail-rule { border: 0; border-top: 1px solid var(--rule); margin: 4px 0 10px; }
+.stack {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 1.28rem;
+  letter-spacing: .02em;
+  line-height: .98;
+  text-transform: uppercase;
+}
+
+.story {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+.copy {
+  columns: 3;
+  column-gap: 22px;
+  column-rule: 1px solid var(--hair);
+  font-size: 14.5px;
+  line-height: 1.55;
+  text-align: justify;
+}
+.copy p { margin: 0 0 .75rem; break-inside: avoid; }
+.copy strong { font-weight: 700; }
+.copy p:first-of-type::first-letter {
+  font-family: "Playfair Display", Georgia, serif;
+  float: left;
+  font-size: 3.3rem;
+  line-height: .78;
+  padding: 4px 7px 0 0;
+  font-weight: 700;
+}
+body[dir="rtl"] .copy p::first-letter {
+  float: none;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+.block-hd {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 18px 0 10px;
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--rule);
+  border-top: 1px solid var(--rule);
+  padding-top: 6px;
+}
+.block-num {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+  line-height: 1;
+}
+.block-kicker {
+  display: block;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.block-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.skills { margin-top: 4px; }
+.skill-row {
+  display: grid;
+  grid-template-columns: 92px 1fr 36px;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+}
+.skill-bar-bg { height: 7px; background: var(--soft); border: 1px solid var(--hair); }
+.skill-bar { height: 100%; background: var(--ink); }
+.skill-pct { text-align: right; }
+
+.dossier {
+  margin-top: 12px;
+  border: 1px solid var(--rule);
+  padding: 10px 12px 12px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.dossier-bar {
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--hair);
+  letter-spacing: .04em;
+}
+.d-key { color: var(--faint); }
+
+.accounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.acc-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  padding: 12px 12px 10px;
+  min-height: 108px;
+}
+.acc-card:hover { background: var(--ink); color: var(--sheet); }
+.acc-platform {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.acc-handle {
+  margin-top: 6px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.15;
+}
+.acc-arr { margin-top: 10px; font-size: 13px; }
+
+.contact-wrap { text-align: center; padding: 8px 0 10px; }
+.contact-box {
+  display: inline-block;
+  max-width: 460px;
+  width: 100%;
+  border: 3px double var(--rule);
+  padding: 22px 18px 18px;
+}
+.con-h {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.con-sub {
+  margin: 6px 0 14px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+.btn-dc {
+  display: inline-block;
+  color: var(--sheet);
+  background: var(--ink);
+  text-decoration: none;
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: .08em;
+  padding: 9px 18px;
+  border: 1px solid var(--rule);
+}
+.btn-dc:hover { background: transparent; color: var(--ink); }
+.con-addr { margin-top: 10px; font-size: 14px; }
+.con-addr a { color: inherit; }
+
+footer {
+  margin-top: 18px;
+  padding-top: 10px;
+  border-top: 4px solid var(--rule);
+  text-align: center;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+.ender {
+  margin: 12px 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: .28em;
+  color: var(--ink);
+}
+.sig { margin-top: 4px; }
+
+.ltr { display: block; }
+.rtl { display: none; }
+span.ltr { display: inline; }
+span.rtl { display: none; }
+body[dir="rtl"] { font-family: "Amiri", Georgia, serif; }
+body[dir="rtl"] .ltr { display: none !important; }
+body[dir="rtl"] .rtl { display: block !important; }
+body[dir="rtl"] span.rtl { display: inline !important; }
+body[dir="rtl"] .copy {
+  font-family: "Amiri", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.9;
+  direction: rtl;
+  text-align: justify;
+}
+body[dir="rtl"] .story-title,
+body[dir="rtl"] .story-quote,
+body[dir="rtl"] .place,
+body[dir="rtl"] .kicker,
+body[dir="rtl"] .chips { text-align: right; direction: rtl; }
+body[dir="rtl"] .pull,
+body[dir="rtl"] .stack { direction: rtl; }
+body[dir="rtl"] .block-hd,
+body[dir="rtl"] .contact-wrap,
+body[dir="rtl"] footer { direction: rtl; }
+body[dir="rtl"] .acc-card,
+body[dir="rtl"] .dossier,
+body[dir="rtl"] .skill-row { direction: rtl; }
+body[dir="rtl"] .skill-pct { text-align: left; }
+
+@media (max-width: 980px) {
+  .copy { columns: 2; }
+  .sheet { padding: 14px 16px 28px; }
+}
+@media (max-width: 640px) {
+  body { padding: 10px 8px 28px; }
+  .sheet { padding: 12px 12px 24px; }
+  .front, .accounts { grid-template-columns: 1fr; }
+  .rail { border-left: 0; border-top: 1px solid var(--rule); padding: 12px 0 0; }
+  .copy { columns: 1; }
+  .top-credit { display: none; }
+  .breaking { white-space: normal; }
+  .mast-name { letter-spacing: .16em; }
+  .lead-photo { height: 460px; aspect-ratio: auto; object-fit: cover; }
+  .side-photo.top, .side-photo.bottom { height: 300px; aspect-ratio: auto; object-fit: cover; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+::selection { background: var(--ink); color: var(--sheet); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="tools">
+    <button class="theme-toggle" id="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch to dark mode" title="Switch theme">
+      <span class="theme-icon" aria-hidden="true">☾</span>
+      <span class="theme-label">DARK</span>
+    </button>
+    <div class="top-credit">
+      <span class="ltr">Director: Toxic &nbsp;·&nbsp; Rights Reserved for الإمبراطورية Group</span>
+      <span class="rtl">المخرج: Toxic &nbsp;·&nbsp; حقوق محفوظة لـ قروب الإمبراطورية</span>
+    </div>
+    <div class="lang-sw" role="group" aria-label="Language">
+      <button class="lbtn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+      <button class="lbtn on" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <header class="mast">
+    <p class="mast-name">THE TOXIC ARCHIVE</p>
+  </header>
+  <p class="dateline">
+    <span class="ltr">THE GREAT WAR ARCHIVE · FIELD DOSSIER No. 001 · 1914 — 1918</span>
+    <span class="rtl">THE GREAT WAR ARCHIVE · ملف ميداني رقم 001 · 1914 — 1918</span>
+  </p>
+  <div class="bars-before"></div>
+  <h1 class="breaking">Breaking News</h1>
+  <div class="bars-after"></div>
+
+  <div class="front">
+    <div class="lead">
+      <img class="lead-photo" src="left.jpg" alt="Historical archive photograph">
+      <p class="figcap">
+        <span class="ltr">Special archive edition · 1914 — 1918<br>A photograph preserved in the Toxic archive.</span>
+        <span class="rtl">عدد الأرشيف الخاص · 1914 — 1918<br>صورة محفوظة ضمن أرشيف Toxic.</span>
+      </p>
+      <p class="kicker ltr">[ Classified profile — access granted ]</p>
+      <p class="kicker rtl">[ ملف سري — تم منح الوصول ]</p>
+      <p class="kicker ltr">Known As</p>
+      <p class="kicker rtl">المعروف بـ</p>
+      <h2 class="story-title">Toxic</h2>
+      <p class="story-quote ltr">“Saqr Al-Mutairi”</p>
+      <p class="story-quote rtl">«صقر المطيري»</p>
+      <p class="place">
+        <span class="ltr">State of Kuwait · Malware Developer &amp; Systems Engineer</span>
+        <span class="rtl">دولة الكويت · مطور برمجيات ضارة ومهندس أنظمة</span>
+      </p>
+      <p class="chips">C++ · Python · Malware Dev · Cracking · Reverse Eng. · AV Evasion</p>
+    </div>
+
+    <aside class="rail">
+      <p class="pull ltr">“For Toxic, programming is not only about writing code.”</p>
+      <p class="pull rtl">«البرمجة بالنسبة إلى Toxic ليست مجرد كتابة أسطر من الكود.»</p>
+      <img class="side-photo top" src="top.jpg" alt="Historical archive photograph of two men">
+      <p class="pull ltr">“He is the founder of الإمبراطورية (The Empire), a Kuwait-based development and technology community.”</p>
+      <p class="pull rtl">«وهو مؤسس الإمبراطورية، وهي مجموعة تقنية ومجتمع تطوير مقره الكويت.»</p>
+      <hr class="rail-rule">
+      <p class="stack ltr">Malware Developer<br>&amp; Systems Engineer</p>
+      <p class="stack rtl">مطور برمجيات ضارة<br>ومهندس أنظمة</p>
+      <img class="side-photo bottom" src="bottom.webp" alt="Historical archive photograph of a seated man">
+    </aside>
+  </div>
+
+  <section class="story" id="about">
+    <div class="block-hd">
+      <div class="block-num">I</div>
+      <div>
+        <span class="block-kicker ltr">Profile</span>
+        <span class="block-kicker rtl">الملف الشخصي</span>
+        <div class="block-title ltr">About Toxic</div>
+        <div class="block-title rtl">عن توكسك</div>
+      </div>
+    </div>
+    <div class="about-txt copy ltr">
+      <p><strong>Toxic</strong>, also known as <strong>Saqr Al-Mutairi</strong>, is a Kuwaiti programmer with a strong interest in software engineering, computer systems, and cybersecurity. His work brings together curiosity about how technology functions, careful problem-solving, and a preference for building practical projects rather than stopping at ideas or prototypes.</p>
+      <p>His main programming languages are <strong>C++</strong> and <strong>Python</strong>. He uses C++ to explore system-level concepts, application structure, and performance, while Python supports scripting, automation, and the development of helpful utilities. He is also interested in <strong>software analysis and reverse engineering</strong> as ways to understand how applications are designed, how components communicate, and how software can be tested responsibly.</p>
+      <p>For Toxic, programming is not only about writing code. It is also about understanding the problem, designing a clear solution, testing it carefully, and improving the result. Areas of interest include software development, automation, system architecture, privacy, and defensive security. He values tools that are understandable, reliable, and useful to the people who work with them.</p>
+      <p>He is the founder of <strong>الإمبراطورية (The Empire)</strong>, a Kuwait-based development and technology community. The group brings together an interest in programming, technical learning, and sharing projects. Through this community, Toxic aims to encourage experimentation, exchange knowledge, and keep developing his skills across different areas of computing.</p>
+      <p>This archive introduces the person behind the alias: a developer from Kuwait who enjoys exploring technology, learning how systems fit together, and turning technical ideas into finished work. His focus remains on continuous learning, thoughtful engineering, and building a distinct identity for his projects.</p>
+    </div>
+    <div class="about-txt copy rtl">
+      <p><strong>Toxic</strong>، المعروف أيضاً باسم <strong>صقر المطيري</strong>، مبرمج كويتي لديه اهتمام كبير بهندسة البرمجيات وأنظمة الحاسوب والأمن السيبراني. يجمع عمله بين الفضول لفهم طريقة عمل التقنية، وحل المشكلات بأسلوب منظم، والرغبة في بناء مشاريع عملية تتجاوز مجرد الأفكار أو النماذج الأولية.</p>
+      <p>لغتاه البرمجيتان الأساسيتان هما <strong>C++</strong> و<strong>Python</strong>. يستخدم C++ لاستكشاف مفاهيم الأنظمة وبنية التطبيقات والأداء، بينما تساعده Python في كتابة السكربتات والأتمتة وتطوير الأدوات المساعدة. كما يهتم بـ<strong>تحليل البرامج والهندسة العكسية</strong> لفهم كيفية تصميم التطبيقات، وطريقة تواصل مكوناتها، وكيفية اختبار البرمجيات بمسؤولية.</p>
+      <p>البرمجة بالنسبة إلى Toxic ليست مجرد كتابة أسطر من الكود؛ بل تبدأ بفهم المشكلة، وتصميم حل واضح، واختباره بعناية، ثم تحسين النتيجة. وتشمل اهتماماته تطوير البرمجيات، والأتمتة، وهندسة الأنظمة، والخصوصية، وأمن المعلومات الدفاعي. ويقدّر الأدوات الواضحة والموثوقة والمفيدة للأشخاص الذين يستخدمونها.</p>
+      <p>وهو مؤسس <strong>الإمبراطورية</strong>، وهي مجموعة تقنية ومجتمع تطوير مقره الكويت. يجمع القروب أشخاصاً لديهم اهتمام بالبرمجة والتعلم التقني ومشاركة المشاريع. ومن خلال هذا المجتمع، يسعى Toxic إلى تشجيع التجربة وتبادل المعرفة ومواصلة تطوير مهاراته في مجالات الحوسبة المختلفة.</p>
+      <p>يقدم هذا الأرشيف نبذة عن الشخص خلف الاسم المستعار: مطور من الكويت يستمتع باستكشاف التقنية وفهم ترابط الأنظمة وتحويل الأفكار التقنية إلى أعمال مكتملة. ويظل تركيزه على التعلم المستمر والهندسة المدروسة وبناء هوية مميزة لمشاريعه.</p>
+    </div>
+
+    <div class="skills-row skills" style="margin-top:14px;">
+      <div class="skill-row">
+        <span class="skill-name">C++</span>
+        <div class="skill-bar-bg"><div class="skill-bar" style="width:95%"></div></div>
+        <span class="skill-pct">95%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Python</span>
+        <div class="skill-bar-bg"><div class="skill-bar" style="width:88%"></div></div>
+        <span class="skill-pct">88%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name ltr">Malware</span>
+        <span class="skill-name rtl">برمجيات</span>
+        <div class="skill-bar-bg"><div class="skill-bar" style="width:93%"></div></div>
+        <span class="skill-pct">93%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Cracking</span>
+        <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
+        <span class="skill-pct">90%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name ltr">Rev. Eng.</span>
+        <span class="skill-name rtl">عكس هندسة</span>
+        <div class="skill-bar-bg"><div class="skill-bar" style="width:84%"></div></div>
+        <span class="skill-pct">84%</span>
+      </div>
+    </div>
+
+    <div class="dossier">
+      <div class="dossier-bar">toxic@kw · whoami</div>
+      <div><span class="d-key">alias</span> &nbsp; Toxic &nbsp;// صقر المطيري</div>
+      <div><span class="d-key">real</span> &nbsp; صقر المطيري</div>
+      <div><span class="d-key">location</span> &nbsp; Kuwait</div>
+      <div><span class="d-key">langs</span> &nbsp; C++ · Python</div>
+      <div><span class="d-key">focus</span> &nbsp; malware</div>
+      <div><span class="d-key">group</span> &nbsp; الإمبراطورية</div>
+      <div><span class="d-key">status</span> &nbsp; [ ONLINE ] — building</div>
+    </div>
+  </section>
+
+  <section id="accounts">
+    <div class="block-hd">
+      <div class="block-num">II</div>
+      <div>
+        <span class="block-kicker ltr">Social Presence</span>
+        <span class="block-kicker rtl">الحضور الرقمي</span>
+        <div class="block-title ltr">Accounts</div>
+        <div class="block-title rtl">الحسابات</div>
+      </div>
+    </div>
+    <div class="accounts">
+      <a class="acc-card" href="https://github.com/mef8jmjfw8jefmw" target="_blank" rel="noopener">
+        <div class="acc-platform">GitHub</div>
+        <div class="acc-handle">mef8jmjfw8jefmw</div>
+        <div class="acc-arr">↗</div>
+      </a>
+      <div class="acc-card">
+        <div class="acc-platform">Discord</div>
+        <div class="acc-handle">@t2oxic</div>
+      </div>
+      <a class="acc-card" href="https://discord.gg/771" target="_blank" rel="noopener">
+        <div class="acc-platform ltr">Discord Server</div>
+        <div class="acc-platform rtl">سيرفر ديسكورد</div>
+        <div class="acc-handle">الإمبراطورية</div>
+        <div class="acc-arr">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="contact-wrap" id="contact">
+    <div class="block-hd" style="justify-content:center;text-align:start;">
+      <div class="block-num">V</div>
+      <div>
+        <span class="block-kicker ltr">Communication</span>
+        <span class="block-kicker rtl">التواصل</span>
+        <div class="block-title ltr">Reach Toxic</div>
+        <div class="block-title rtl">تواصل مع توكسك</div>
+      </div>
+    </div>
+    <div class="contact-box">
+      <div class="con-h ltr">Discord</div>
+      <div class="con-h rtl">ديسكورد</div>
+      <div class="con-sub ltr">// join the community — security · development</div>
+      <div class="con-sub rtl">// انضم للمجتمع — أمن · تطوير</div>
+      <a class="btn-dc" href="https://discord.gg/771" target="_blank" rel="noopener">
+        <span class="ltr">Join Server</span>
+        <span class="rtl">انضم للسيرفر</span>
+      </a>
+      <div class="con-addr"><a href="https://discord.gg/771" target="_blank" rel="noopener">discord.gg/771</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="ltr">Director: Toxic &nbsp;·&nbsp; All Rights Reserved for قروب الإمبراطورية &nbsp;·&nbsp; Kuwait</span>
+      <span class="rtl">المخرج: Toxic &nbsp;·&nbsp; جميع الحقوق محفوظة لـ قروب الإمبراطورية &nbsp;·&nbsp; الكويت</span>
+    </div>
+    <p class="ender">TOXIC</p>
+    <div class="sig">☠ &nbsp; صقر المطيري &nbsp; ☠</div>
+  </footer>
+</div>
+
+<script>
+function setLang(l){
+  const ar = l === 'ar';
+  document.body.setAttribute('dir', ar ? 'rtl' : 'ltr');
+  document.documentElement.lang = ar ? 'ar' : 'en';
+  document.getElementById('btn-ar').classList.toggle('on', ar);
+  document.getElementById('btn-en').classList.toggle('on', !ar);
+  try { localStorage.setItem('tx_l', l); } catch (e) {}
+}
+(function(){ let s; try { s = localStorage.getItem('tx_l'); } catch (e) {} if (s === 'ar') setLang('ar'); })();
+
+function applyTheme(theme){
+  const dark = theme === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+  const icon = btn.querySelector('.theme-icon');
+  const label = btn.querySelector('.theme-label');
+  if (icon) icon.textContent = dark ? '☀' : '☾';
+  if (label) label.textContent = dark ? 'LIGHT' : 'DARK';
+}
+function toggleTheme(){
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('tx_theme', next); } catch (e) {}
+}
+(function(){ let saved = 'light'; try { saved = localStorage.getItem('tx_theme') || 'light'; } catch (e) {} applyTheme(saved); })();
+</script>
+</body>
+</html>
